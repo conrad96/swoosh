@@ -1,3 +1,3 @@
 # swoosh
-Android app game developed with kotlin 
+Android app for showing available spots to play swoosh developed with kotlin 
 * 

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">swoosh</string>
+    <string name="search_league"></string>
+    <string name="selected_field">Iam a:</string>
 </resources>

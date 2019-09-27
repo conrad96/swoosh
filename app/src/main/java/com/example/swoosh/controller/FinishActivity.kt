@@ -14,7 +14,7 @@ class FinishActivity : AppCompatActivity() {
         setContentView(R.layout.activity_finish)
         var league = intent.getStringExtra(EXTRA_LEAGUE)
         var level =  intent.getStringExtra(PASSED_VALUE)
-        var display: String = "Looking for a " + league + " " + level + "s near you ..."
+        var display: String = "Looking for a " + league + " " + level + "s league near you ..."
 
         var field = findViewById(R.id.searchLeaguesText) as TextView
         field.text = display

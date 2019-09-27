@@ -16,7 +16,6 @@ class SkillActivity : AppCompatActivity() {
         league = intent.getStringExtra(EXTRA_LEAGUE)
 
         //display selected value from previous screen
-        var selected = findViewById(R.id.selected_button) as TextView
 
         if(league.contentEquals("mens")){
             league = "Man"
@@ -32,6 +31,8 @@ class SkillActivity : AppCompatActivity() {
          beginnerBtn.isChecked = false
         }
 
+        var selected = findViewById(R.id.selected_button) as TextView
         selected.text = "Iam a: "+league
+
     }
 }

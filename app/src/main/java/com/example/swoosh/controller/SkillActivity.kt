@@ -1,5 +1,6 @@
 package com.example.swoosh.controller
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -33,6 +34,11 @@ class SkillActivity : AppCompatActivity() {
 
         var selected = findViewById(R.id.selected_button) as TextView
         selected.text = "Iam a: "+league
+
+        finishBtn.setOnClickListener {
+            val finishIntent = Intent(this, FinishActivity::class.java)
+            startActivity(finishIntent)
+        }
 
     }
 }

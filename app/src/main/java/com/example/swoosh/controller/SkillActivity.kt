@@ -4,12 +4,16 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import android.widget.Toast
 import com.example.swoosh.utilities.EXTRA_LEAGUE
 import com.example.swoosh.R
+import com.example.swoosh.utilities.PASSED_VALUE
 import kotlinx.android.synthetic.main.activity_skill.*
 
 class SkillActivity : AppCompatActivity() {
     var league: String = ""
+    var skill: String = ""
+    var changeString: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,25 +23,34 @@ class SkillActivity : AppCompatActivity() {
         //display selected value from previous screen
 
         if(league.contentEquals("mens")){
-            league = "Man"
+            changeString = "Man"
         }else if(league.contentEquals("womens")){
-            league = "Woman"
+            changeString = "Woman"
         }
 
         beginnerBtn.setOnClickListener{
             ballerBtn.isChecked = false
+            skill = "beginner"
         }
 
         ballerBtn.setOnClickListener {
          beginnerBtn.isChecked = false
+            skill = "baller"
         }
 
         var selected = findViewById(R.id.selected_button) as TextView
-        selected.text = "Iam a: "+league
+        selected.text = "Iam a: "+changeString
 
         finishBtn.setOnClickListener {
-            val finishIntent = Intent(this, FinishActivity::class.java)
-            startActivity(finishIntent)
+            if(skill != ""){
+                val finishIntent = Intent(this, FinishActivity::class.java)
+                finishIntent.putExtra(PASSED_VALUE, skill)
+                finishIntent.putExtra(EXTRA_LEAGUE, league)
+                startActivity(finishIntent)
+            }else{
+                Toast.makeText(this, "Please select your skill level", Toast.LENGTH_SHORT).show()
+            }
+
         }
 
     }
